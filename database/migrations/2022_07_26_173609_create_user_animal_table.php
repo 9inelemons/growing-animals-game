@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignIdFor(Animal::class);
             $table->string('name');
             $table->unsignedInteger('age');
-            $table->unsignedInteger('size');
+            $table->unsignedFloat('size');
             $table->timestamps();
 
             $table->primary(['user_id', 'animal_id']);

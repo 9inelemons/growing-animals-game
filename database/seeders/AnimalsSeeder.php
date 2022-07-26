@@ -19,25 +19,25 @@ class AnimalsSeeder extends Seeder
                 'kind' => 'cat',
                 'max_size' => 25,
                 'max_age' => 100,
-                'growth_factor' => 1.0
+                'growth_factor' => 0.25
             ],
             [
                 'kind' => 'dog',
                 'max_size' => 50,
-                'max_age' => 120,
-                'growth_factor' => 1.5
+                'max_age' => 100,
+                'growth_factor' => 0.5
             ],
             [
                 'kind' => 'bird',
                 'max_size' => 10,
-                'max_age' => 60,
-                'growth_factor' => 0.6
+                'max_age' => 50,
+                'growth_factor' => 0.5
             ],
             [
                 'kind' => 'british_cat',
                 'max_size' => 20,
-                'max_age' => 90,
-                'growth_factor' => 0.8
+                'max_age' => 100,
+                'growth_factor' => 0.2
             ],
         ];
 
