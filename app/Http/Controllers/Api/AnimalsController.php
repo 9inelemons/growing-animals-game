@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Animal;
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class AnimalsController extends Controller
 {
@@ -30,5 +32,30 @@ class AnimalsController extends Controller
         });
 
         return response()->json($animals);
+    }
+
+    public function createNew(Request $request)
+    {
+        /** @var User $user */
+        $user = auth()->user();
+
+        $animalId = $request->get('animal_id');
+
+        $user->animals()->attach($animalId, [
+            'size' => 0,
+            'age' => 0,
+            'name' => 'Test'
+        ]);
+
+        $animal = Animal::find($animalId);
+
+        $result = [
+            'id' => $animalId,
+            'kind' => $animal->kind,
+            'max_size' => $animal->kind,
+            'size' => $animal->size
+        ];
+
+        return response()->json($result);
     }
 }

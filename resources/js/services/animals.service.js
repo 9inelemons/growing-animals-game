@@ -18,5 +18,14 @@ class AnimalsService {
                 return response.data;
             });
     }
+    create(animalId) {
+        return axios
+            .post(API_URL + 'create', {
+                animal_id: animalId
+            },{ headers: authHeader() })
+            .then(response => {
+                return response.data;
+            });
+    }
 }
 export default new AnimalsService();

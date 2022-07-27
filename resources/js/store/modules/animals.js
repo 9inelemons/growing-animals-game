@@ -31,6 +31,18 @@ export const animals = {
                 }
             );
         },
+        create({ commit }, animalId) {
+            return AnimalsService.create(animalId).then(
+                animal => {
+                    commit('createSuccess', animal);
+                    return Promise.resolve(animal);
+                },
+                error => {
+                    commit('createFailure');
+                    return Promise.reject(error);
+                }
+            );
+        },
     },
     mutations: {
         kindsSuccess(state, kinds) {
@@ -43,6 +55,19 @@ export const animals = {
             state.animals = kinds;
         },
         myFailure(state) {
+            state.animals = [];
+        },
+        growAnimal(state, data) {
+            const existsAtIndex = state.animals.findIndex(a => a.kind === data.kind)
+            state.animals[existsAtIndex] = {
+                ...state.animals[existsAtIndex],
+                size: data.size,
+            }
+        },
+        createSuccess(state, animal) {
+            state.animals.push(animal);
+        },
+        createFailure(state) {
             state.animals = [];
         },
     }

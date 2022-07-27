@@ -40,7 +40,7 @@ export default {
     },
     mounted() {
         if (this.loggedIn) {
-            this.$router.push('/game');
+            this.$router.push('/');
         }
     },
 
@@ -69,7 +69,7 @@ export default {
                     this.message = data.message;
                     this.successful = true;
                     this.loading = false;
-                    this.$router.push('/game');
+                    this.$router.push('/');
                 },
                 (error) => {
                     this.message =

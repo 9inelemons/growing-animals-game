@@ -31,7 +31,7 @@ class AnimalsSeeder extends Seeder
                 'kind' => 'bird',
                 'max_size' => 10,
                 'max_age' => 50,
-                'growth_factor' => 0.5
+                'growth_factor' => 0.1
             ],
             [
                 'kind' => 'british_cat',

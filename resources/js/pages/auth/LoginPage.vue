@@ -34,7 +34,7 @@ export default {
     },
     created() {
         if (this.loggedIn) {
-            this.$router.push('/game');
+            this.$router.push('/');
         }
     },
 
@@ -56,7 +56,7 @@ export default {
             this.loading = true;
             this.$store.dispatch("auth/login", user).then(
                 () => {
-                    this.$router.push("/game");
+                    this.$router.push("/");
                 },
                 (error) => {
                     this.loading = false;

@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Events\AnimalGrowedEvent;
 use App\Models\Animal;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
@@ -41,6 +42,15 @@ class GrowAnimalsJob implements ShouldQueue
                        'size' => $animal->pivot->size + 1 * ($animal->growth_factor)
                    ];
                    $user->animals()->updateExistingPivot($animal->pivot->animal_id, $growData);
+
+                   $eventData = [
+                       'age' => $growData['age'],
+                       'size' => $growData['size'],
+                       'kind' => $animal->kind,
+                       'user_id' => $user->id,
+                   ];
+
+                   event(new AnimalGrowedEvent($eventData));
                }
            }
         });

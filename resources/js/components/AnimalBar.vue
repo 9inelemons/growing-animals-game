@@ -17,6 +17,7 @@
                 :key="kind.id"
                 class="animal-kind"
                 :class="isActive(kind)"
+                @click="createAnimal(kind.id)"
             >
                 <img :src="kind.image"/>
             </div>
@@ -59,6 +60,9 @@ export default {
                 'active': isActive
             }
         },
+        createAnimal(animalId) {
+            this.$store.dispatch('animals/create', animalId);
+        }
     }
 }
 </script>

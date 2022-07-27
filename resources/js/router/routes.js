@@ -1,10 +1,5 @@
 const routes = [
     {
-        path: '/',
-        component: () => import('../pages/HomePage.vue'),
-        name: 'home'
-    },
-    {
         path: '/auth/register',
         component: () => import('../pages/auth/RegisterPage.vue'),
         name: 'register'
@@ -15,7 +10,7 @@ const routes = [
         name: 'login'
     },
     {
-        path: '/game',
+        path: '/',
         component: () => import('../pages/GamePage.vue'),
         name: 'game'
     },
