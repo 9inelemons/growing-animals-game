@@ -28,4 +28,5 @@ Route::group([
 
 Route::group(['middleware' => 'auth:api', 'prefix' => 'animals'], function () {
     Route::get('/kinds', [AnimalsController::class, 'getKinds']);
+    Route::get('/my', [AnimalsController::class, 'getUserAnimals']);
 });

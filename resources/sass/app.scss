@@ -23,3 +23,57 @@
     height: 100%;
     background: linear-gradient(180deg, #E0F7FA 0%, #80DEEA 100%);
 }
+
+.animals-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #3E2723;
+    z-index: 1;
+    span {
+        color: white;
+        font-size: 30px;
+    }
+}
+
+.animals-bar {
+    display: flex;
+    align-items: center;
+    padding: 50px 0 0 50px;
+}
+
+.animal-kinds {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    padding-left: 50px;
+    padding-right: 12px;
+    border-radius: 0px 8px 8px 0px;
+    margin-left: 14px;
+    z-index: 0;
+    background: #D7CCC8;
+    height: 48px;
+    gap: 6px;
+    .active {
+        opacity: 0.3;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.animal-kind {
+    height: 40px;
+    width: 40px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    border: 2px solid #3E2723;
+    img {
+        width: 100%;
+        margin: 0 auto;
+        height: 25px;
+    }
+}
