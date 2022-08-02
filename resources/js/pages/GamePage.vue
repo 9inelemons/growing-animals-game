@@ -61,14 +61,15 @@ export default {
     async mounted() {
         if (!this.currentUser) {
             this.$router.push('/auth/login');
+        } else {
+            await this.getKinds();
+            await this.getMyAnimals();
+            Echo.connector.options.auth.headers['Authorization'] = 'Bearer ' + this.currentUser.access_token;
+            Echo.private(`App.Models.User.${this.currentUser.user.id}`)
+                .listen('AnimalGrowedEvent', (e) => {
+                    this.$store.commit('animals/growAnimal', e.data);
+                });
         }
-        await this.getKinds();
-        await this.getMyAnimals();
-        Echo.connector.options.auth.headers['Authorization'] = 'Bearer ' + this.currentUser.access_token;
-        Echo.private(`App.Models.User.${this.currentUser.user.id}`)
-            .listen('AnimalGrowedEvent', (e) => {
-                this.$store.commit('animals/growAnimal', e.data);
-            });
     },
     methods: {
         logout() {
